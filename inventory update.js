@@ -4,7 +4,7 @@
 //cannot be found, add the new item and quantity into the inventory array.
 //The returned inventory array should be in alphabetical order.
 
-
+ 
 function updateInventory(arr1, arr2){
     //convert current inventory arr1 into a one dimensional array
     const inventory = Array.prototype.concat.apply([], arr1);
