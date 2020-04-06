@@ -6,4 +6,11 @@
 function permAlone(str){
     //Create a regex to match repeated consecutive characters
     var regex = /(.)\1+/;
+
+    //Split the string into an array of characters
+    var arr = str.split("");
+    var permutations = [];
+    var tmp;
+
+    
 }
