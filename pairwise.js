@@ -8,3 +8,29 @@ Each pair should use the lowest possible available indices. Once an element has 
 
 For example pairwise([7, 9, 11, 13, 15], 20) returns 6. The pairs that sum to 20 are [7, 13] and [9, 11]. We can then write out the array with their indices and values.
 */
+
+function pairwise(arr, arg){
+   var sum = 0; //Set sum of indicies to zero
+
+   //Make a local copy of the arguments object to not modify it directly
+   var pairArr = arr.slice(); 
+
+   //looping from the first element
+   for (let i = 0; i < pairArr.length; i++){
+       // looping from the second element by setting first element constnat
+       for (let j = i + 1; j < pairArr.length; j++){
+
+
+            //Check if the sum is equal to arg
+            if(pairArr[i] + pairArr[j] == arg){
+                //add the indicies
+                sum+= i + j;
+                //Set indicies to NaN so they can't be used in next iteration
+                pairArr[i] = pairArr[j] = NaN;
+            }
+       }
+   }
+   return sum;
+}
+
+console.log(pairwise([1,4,2,3,0,5], 7));
