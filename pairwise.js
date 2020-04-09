@@ -46,12 +46,24 @@ function pairwiseReduce(arr, arg){
     //equal the arg. then sum their indices.
     //MAke a local copy of the argument object so we don't modify it.
 
-    var pairArr = arr.slice();
+    let pairArr = arr.slice();
 
     return pairArr.reduce(function(a,b, index){
         //Use reduce to collect running number of summed indicies
-        
-    })
+
+        let search = arg - b; //Find difference of current item so we know
+        //what value will sum to arg
+
+        //check if there is a match in the array, but doesn't equal current index.
+        if (pairArr.indexOf(search) != -1 && pairArr.indexOf(search) != index){
+            var total = index + pairArr.indexOf(search); // add to total if found
+            pairArr.splice(index, 1, NaN);//Remove current index from array
+            pairArr.splice(pairArr.indexOf(search),1,NaN);//Remove searched element from array
+            return a + total; // return the total back to reduce for next item.
+        }
+        return a; //Return previous total if no matches
+    }, 0);
 }
 
 console.log(pairwise([1,4,2,3,0,5], 7));
+console.log(pairwiseReduce([0, 0, 0, 0, 1, 1], 1));
