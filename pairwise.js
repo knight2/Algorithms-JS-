@@ -9,6 +9,14 @@ Each pair should use the lowest possible available indices. Once an element has 
 For example pairwise([7, 9, 11, 13, 15], 20) returns 6. The pairs that sum to 20 are [7, 13] and [9, 11]. We can then write out the array with their indices and values.
 */
 
+
+//Simple for loop solution
+//Outer for loop starts from the first elem of the arr
+//Inner for loop starts from second elem of the arr
+//If sum of both elements equals to args
+// Sum of indicies is added to sum
+//Elements are set to NaN so they are not used again
+//Return sum after loop is completed.
 function pairwise(arr, arg){
    var sum = 0; //Set sum of indicies to zero
 
@@ -31,6 +39,19 @@ function pairwise(arr, arg){
        }
    }
    return sum;
+}
+
+function pairwiseReduce(arr, arg){
+    //Search array for elements that when paired,
+    //equal the arg. then sum their indices.
+    //MAke a local copy of the argument object so we don't modify it.
+
+    var pairArr = arr.slice();
+
+    return pairArr.reduce(function(a,b, index){
+        //Use reduce to collect running number of summed indicies
+        
+    })
 }
 
 console.log(pairwise([1,4,2,3,0,5], 7));
