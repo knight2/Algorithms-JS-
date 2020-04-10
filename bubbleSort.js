@@ -14,9 +14,23 @@ Requires multiple iterations and has quadratic time complexity
 */
 
 function bubbleSort(array){
+    let arrCopy = array.slice();
 
+    function swap(a,b, arr){
+        let temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
 
-    return array;
+    for (let i = 0; i < arrCopy.length; i++){
+        for (let j = 0; j < arrCopy.length-1 -i; j++){
+            if (arrCopy[j + 1] < arrCopy[j]){
+                swap(j, j +1, arrCopy);
+            }
+        }
+    }
+
+    return arrCopy;
 }
 
 console.log(bubbleSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]));
