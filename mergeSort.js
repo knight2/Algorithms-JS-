@@ -11,7 +11,33 @@ array, eventually producing a final sorted array of all the elements.
 is produced.
 
 2. Merge each sorted sub-array together to produce the final sorted array.
+
+Time complexity is O(nlog(n))
+Space complexity is O(n)
 */
+
+
+//Merger function that merges two sorted arrays into one sorted array
+function merger(arr1, arr2){
+    let i = 0, j = 0, mergedArr = [];
+
+    while (i < arr1.length && j < arr2.length){
+        if (arr1[i] > arr2[j]){
+            mergedArr.push(arr2[j++])
+        } else{
+            mergedArr.push(arr1[i++]);
+        }
+    }
+
+    while (i < arr1.length){
+        mergedArr.push(arr1[i++]);
+    }
+    while (j < arr2.length){
+        mergedArr.push(arr2[j++]);
+    }
+
+    return mergedArr;
+}
 
 function mergeSort(array){
 
