@@ -41,7 +41,18 @@ function merger(arr1, arr2){
 
 function mergeSort(array){
 
-    return array;
+    //Array of length 1 is sorted so return it
+    if (array.length == 1) {
+        return array;
+    }
+
+    //Break down the array in half from left and right
+    let middle = Math.floor(array.length / 2);
+    let left = mergeSort(array.slice(0, middle));
+    let right = mergeSort(array.slice(middle));
+
+    //Return the merged sorted array
+    return merger(left, right);
 }
 
 console.log(mergeSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]));
